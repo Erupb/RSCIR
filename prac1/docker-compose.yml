@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  server:
+    restart: always
+    build: server/.
+    ports:
+      - '8080:80'
+    container_name: rscir_prac1
+  db:
+    build: server/.
+    restart: always
+    ports:
+      - '8079:80'
+    container_name: rscir_prac1
