@@ -1,15 +1,19 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  server:
-    restart: always
-    build: server/.
-    ports:
-      - '8080:80'
-    container_name: rscir_prac1
   db:
-    build: server/.
+    image: mariadb
     restart: always
     ports:
-      - '8079:80'
-    container_name: rscir_prac1
+      - "3306:3306"
+    volumes:
+      - ./server:/docker-entrypoint-initdb.d
+    container_name: rscir_pr1_db
+  server:
+    build: ./server
+    restart: always
+    volumes:
+      - ./server:/usr/local/apache2/htdocs/
+    ports:
+      - "8081:80"
+    container_name: rscir_pr1_server
