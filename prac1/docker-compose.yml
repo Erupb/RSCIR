@@ -8,12 +8,12 @@ services:
       - "3306:3306"
     volumes:
       - ./server:/docker-entrypoint-initdb.d
-    container_name: rscir_pr1_db
+    container_name: rscir_pr2_db
   server:
     build: ./server
     restart: always
     volumes:
-      - ./server:/usr/local/apache2/htdocs/
+      - ./server:/var/www/html/
     ports:
       - "8081:80"
-    container_name: rscir_pr1_server
+    container_name: rscir_pr2_server
