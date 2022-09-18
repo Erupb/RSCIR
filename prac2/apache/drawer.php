@@ -16,20 +16,20 @@ if (isset($_GET['num'])) { // истина, если в качестве пар�
     $color = "\"#".($red == 1 ? "ff" : "00").($green == 1 ? "ff" : "00").($blue == 1 ? "ff" : "00")."\"";
     $shape_tag = "";
     $scale = 50;
-    switch ($shape) {
-        case 0:
-            $side = $size * $scale;
-            $shape_tag = "polygon points='".($side / 2 + 5).",10"." 10,".($side)." ".($side).",".($side)."' ";
-            break;
-        case 1:
-            $shape_tag = "rect x=10 y=10 width=".($size * $scale * 2)." height=".($size * $scale)." ";
-            break;
-        case 2:
-            $shape_tag = "rect x=10 y=10 width=".($size * $scale)." height=".($size * $scale)." ";
-            break;
-        case 3:
+    switch ($shape) { // https://www.rapidtables.com/convert/number/binary-to-decimal.html
+        case 0: // http://127.0.0.1:8081/drawer.php?num=19 - 0010011 = 19
             $radius = ($size * $scale / 2);
             $shape_tag = "circle cx=".($radius + 10)." cy=".($radius + 10)." r=".$radius." ";
+            break;
+        case 1: // http://127.0.0.1:8081/drawer.php?num=43 - 0101011 = 43
+            $shape_tag = "rect x=10 y=10 width=".($size * $scale * 2)." height=".($size * $scale)." ";
+            break;
+        case 2: // http://127.0.0.1:8081/drawer.php?num=71 - 1000111 = 71
+            $shape_tag = "rect x=10 y=10 width=".($size * $scale)." height=".($size * $scale)." ";
+            break;
+        case 3: // http://127.0.0.1:8081/drawer.php?num=109 - 1101101 = 109
+            $side = $size * $scale;
+            $shape_tag = "polygon points='".($side / 2 + 5).",10"." 10,".($side)." ".($side).",".($side)."' ";
             break;
     }
     echo "<svg width='1000' height='1000'>";
