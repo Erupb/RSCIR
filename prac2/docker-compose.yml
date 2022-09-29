@@ -5,7 +5,7 @@ services:
     build: ./apache
     restart: always
     volumes:
-      - ./apache:/var/www/html/
+      - ./apache-php:/var/www/html/
     ports:
       - "8081:80"
     container_name: rscir_pr2_server
