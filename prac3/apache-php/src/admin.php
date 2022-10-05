@@ -12,14 +12,8 @@ require_once '_helper.php';
 $mysqli = openMysqli();
 $users = $mysqli->query('select * from ' . users);
 ?>
-<div style="
-            display: flex;
-            flex-direction: column;
-        "><?php foreach ($users as $user) { echo <<<A
-            <div style="
-                display: flex;
-                flex-direction: row;
-            ">
+<div style="display: flex; flex-direction: column;"><?php foreach ($users as $user) { echo <<<A
+            <div style="display: flex; flex-direction: column;">
                 <span>{$user[id]}</span><span>{$user[name]}</span><span>{$user[password]}</span>
             </div>
         A; } ?></div>
