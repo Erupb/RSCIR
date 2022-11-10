@@ -17,7 +17,7 @@
 </html>
 -->
 <?php
-$uploaddir = '/var/www/html/files/';
+$uploaddir = './files/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
 echo '<pre>';
